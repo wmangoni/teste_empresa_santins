@@ -1,0 +1,19 @@
+.navbar {
+  @media screen and (min-width: $break-small+1) {
+    height: 100px;
+  }
+  .nav {
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    li {
+      a {
+        text-transform: uppercase;
+        padding: 15px;
+        i {
+
+        }
+      }
+    }
+  }
+}

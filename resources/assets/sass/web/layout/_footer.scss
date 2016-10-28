@@ -1,0 +1,36 @@
+#web {
+  .footer {
+      height: 269px;
+      background: #000;
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+
+      .title {
+        color: #244B66;
+        font-size: 16px;
+        font-weight: bold;
+
+      }
+      p {
+        color: #ffffff;
+      }
+      #site-map {
+
+      }
+      #contacts {
+
+      }
+      #social-media {
+
+      }
+
+      .copyright {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        padding: 10px 0px;
+        background: #101010;
+      }
+    }
+}
