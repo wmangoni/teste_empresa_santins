@@ -93,7 +93,13 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try {
+            $page = $this->pageRepo->findByID($id);
+            $page->update($request->all());
+        }catch (Exception $e){
 
+        }
+        return redirect()->route('manager.site');
     }
 
     /**
