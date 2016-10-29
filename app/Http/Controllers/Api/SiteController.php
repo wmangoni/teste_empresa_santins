@@ -25,6 +25,7 @@ class SiteController extends Controller
      */
     public function create()
     {
+        $this->setPageTitle('Nova página');
         return view('api.manager.site.create');
     }
 

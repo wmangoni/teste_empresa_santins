@@ -4,7 +4,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">{{$page_title}}</div>
+                <div class="panel-heading">
+                    {{$page_title}}
+                    <a href="{{route("manager.site.create")}}" class="btn btn-default pull-right btn-xs">Nova página</a>
+                </div>
 
                 <div class="panel-body">
                     You are logged in!
