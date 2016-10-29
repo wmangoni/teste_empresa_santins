@@ -19,10 +19,12 @@
         ]); ?>
     </script>
 </head>
-<body>
-<div id="web">
-
+<body id="web">
     @include('layouts/web/navbar')
+
+    <div class="header-background">
+
+    </div>
 
     <section class="container">
         @yield('content')
@@ -31,7 +33,6 @@
     <footer class="footer">
         @include('layouts/web/footer')
     </footer>
-</div>
 
 <script src="{{ elixir('js/app.js') }}"></script>
 </body>

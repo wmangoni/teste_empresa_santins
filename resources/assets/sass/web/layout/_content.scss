@@ -1,5 +1,13 @@
-#web{
-  > .container{
+#web {
+  background: #FFFFFF;
+  .header-background {
+    background-color: lightgrey;
+    width: 100%;
+    height: 130px;
+    margin-top: -23px;
+
+  }
+  > .container {
     margin-top: 30px;
   }
 }

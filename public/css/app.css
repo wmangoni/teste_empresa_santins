@@ -8091,8 +8091,15 @@ button.close {
   overflow: visible;
   clip: auto; }
 
-#web > .container {
-  margin-top: 30px; }
+#web {
+  background: #FFFFFF; }
+  #web .header-background {
+    background-color: lightgrey;
+    width: 100%;
+    height: 130px;
+    margin-top: -23px; }
+  #web > .container {
+    margin-top: 30px; }
 
 #web .footer {
   height: 269px;
