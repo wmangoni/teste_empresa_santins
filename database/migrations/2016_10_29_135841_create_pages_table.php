@@ -20,6 +20,8 @@ class CreatePagesTable extends Migration
             $table->text('description');
             $table->string('symbol', 25);
             $table->string('color_symbol', 15);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

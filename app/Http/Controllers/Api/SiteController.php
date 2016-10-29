@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Domains\Pages\PageRepository;
 use Illuminate\Http\Request;
+use Mockery\CountValidator\Exception;
 
 class SiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $pageRepo;
+
+    public function __construct(PageRepository $pageRepo)
+    {
+        $this->pageRepo = $pageRepo;
+    }
+
     public function index()
     {
         $this->setPageTitle('Gerenciador do site');
-
-        return view('api.manager.site.index');
+        $pages = $this->pageRepo->getAll()->sortBy('title');
+        return view('api.manager.site.index')
+            ->with('pages', $pages);
     }
 
     /**
@@ -37,7 +42,12 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->pageRepo->create($request->all());
+            return redirect()->route('manager.site');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**

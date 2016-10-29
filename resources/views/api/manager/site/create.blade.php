@@ -74,16 +74,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('symbol_color') ? ' has-error' : '' }}">
-                            <label for="symbol" class="col-md-4 control-label">Cor da seção</label>
+                        <div class="form-group{{ $errors->has('color_symbol') ? ' has-error' : '' }}">
+                            <label for="color_symbol" class="col-md-4 control-label">Cor da seção</label>
 
                             <div class="col-md-6">
-                                <input id="symbol_color" type="text" class="form-control" name="symbol_color"
-                                       value="{{ old('symbol_color') }}" placeholder="Cor no padrão Hex: #d92626" required>
+                                <input id="color_symbol" type="text" class="form-control" name="color_symbol"
+                                       value="{{ old('color_symbol') }}" placeholder="Cor no padrão Hex: #d92626" required>
 
-                                @if ($errors->has('symbol_color'))
+                                @if ($errors->has('color_symbol'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('symbol_color') }}</strong>
+                                        <strong>{{ $errors->first('color_symbol') }}</strong>
                                     </span>
                                 @endif
                             </div>
