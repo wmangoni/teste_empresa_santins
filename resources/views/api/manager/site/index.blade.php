@@ -6,7 +6,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     {{$page_title}}
-                    <a href="{{route("manager.site.create")}}" class="btn btn-default pull-right btn-xs">Nova página</a>
+                    <a href="{{route("manager.site.create")}}" class="btn btn-default pull-right btn-xs">
+                        <i class="fa fa-newspaper-o"></i>Nova página
+                    </a>
                 </div>
 
                 <div class="panel-body">
