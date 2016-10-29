@@ -3,17 +3,20 @@
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
+use App\Domains\Pages\PageRepository;
 
 class PageController extends Controller
 {
+    private $pageRepo;
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct(PageRepository $pageRepo)
     {
-        return view('web/home');
+        $this->pageRepo = $pageRepo;
+    }
+
+    public function show($slug = 'home')
+    {
+        $page = $this->pageRepo->getPage($slug);
+        return View('web.page_generated')->with('page', $page);
     }
 }
