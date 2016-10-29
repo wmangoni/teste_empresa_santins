@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav id="navbar-web" class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
 
@@ -28,13 +28,14 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right menus">
                 <!-- Authentication Links -->
+
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Empreendimento</a></li>
+                <li><a href="/">Infraestrutura</a></li>
+                <li><a href="/">Galeria</a></li>
+                <li><a href="/">Mídia</a></li>
+                <li><a href="/">Contato</a></li>
                 @if (Auth::guest())
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/">Empreendimento</a></li>
-                    <li><a href="/">Infraestrutura</a></li>
-                    <li><a href="/">Galeria</a></li>
-                    <li><a href="/">Mídia</a></li>
-                    <li><a href="/">Contato</a></li>
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else
@@ -45,6 +46,11 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ url('/api') }}">
+                                  Voltar
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();

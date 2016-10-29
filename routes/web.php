@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+
+Route::group(['namespace' => 'Api', 'prefix' => 'api', 'middleware' => 'auth'], function () {
+    Route::get('gerenciar/site', 'SiteController@index')->name('manager');
+    Route::get('/', 'HomeController@index')->name('api.home');
+});
+
