@@ -1,4 +1,4 @@
-.navbar {
+#navbar-web {
   @media screen and (min-width: $break-small+1) {
     height: 120px;
   }
@@ -48,7 +48,7 @@
         }
 
         #search-bar {
-          background-color: grey;
+          background-color: lightgrey;
           width: 100% !important;
         }
       }
