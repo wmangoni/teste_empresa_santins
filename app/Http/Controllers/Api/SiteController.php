@@ -67,7 +67,6 @@ class SiteController extends Controller
         try {
             ($isVisible) ? $this->pageRepo->inactiveThePage($id) : $this->pageRepo->activeThePage($id);
         } catch (Exception $e) {
-            dd($e->getMessage());
         }
         return redirect()->back();
     }
@@ -80,7 +79,9 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->setPageTitle('Edição da página');
+        $page = $this->pageRepo->findByID($id);
+        return view('api.manager.site.edit')->with('page', $page);
     }
 
     /**
@@ -92,7 +93,7 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

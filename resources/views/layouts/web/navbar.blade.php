@@ -28,8 +28,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right menus">
                 <!-- Authentication Links -->
-                @forelse($pageGen as $page)
-                    <li><a href="/{{$page->slug}}">
+                @forelse($pageGen->getActivePages() as $page)
+                    <li><a href="/site/{{$page->slug}}">
                             @if($page->symbol)
                                 <i class="fa fa-circle" style="color: {{$page->color_symbol}}"></i>
                             @endif

@@ -24,7 +24,7 @@
                                             {{$page->title}}
                                         </div>
                                         <div class="col-lg-6 text-right">
-                                            <a class="btn btn-xs btn-info">
+                                            <a href="{{route('manager.site.edit', $page->id)}}" class="btn btn-xs btn-info">
                                                 <i class="fa fa-edit"></i>Editar
                                             </a>
                                             @if($page->active)
