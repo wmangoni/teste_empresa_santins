@@ -4,10 +4,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">{{$page_title}}</div>
+                <div class="panel-heading">{{$page_title}}
+                    <a href="{{route("manager.site")}}" class="btn btn-default pull-right btn-xs">
+                        <i class="fa fa-reply"></i>Voltar
+                    </a>
+                </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('manager.site.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('slug') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Rota</label>
@@ -87,8 +91,8 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Salvar
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fa fa-floppy-o"></i>Salvar
                                 </button>
                             </div>
                         </div>
