@@ -17,6 +17,6 @@ class PageController extends Controller
     public function show($slug = 'home')
     {
         $page = $this->pageRepo->getPage($slug);
-        return ($page) ? View('web.page_generated')->with('page', $page) : View('errors.204');
+        return (count($page)) ? View('web.page_generated')->with('page', $page) : View('errors.204');
     }
 }

@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="img/aerovale-brand.jpg" class="navbar-brand-img">
+                <img src="/img/aerovale-brand.jpg" class="navbar-brand-img">
             </a>
         </div>
 

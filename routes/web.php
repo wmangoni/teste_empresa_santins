@@ -13,7 +13,7 @@
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/', 'PageController@show')->name('web.home');
-    Route::get('{slug}', 'PageController@show')->name('generated.page');
+    Route::get('site/{slug}', 'PageController@show')->name('generated.page');
 });
 
 
