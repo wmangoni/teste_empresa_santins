@@ -7,7 +7,13 @@
     margin-top: -23px;
 
   }
-  > .container {
-    margin-top: 30px;
+
+  .page-error{
+    font-size: 18px;
+    text-align: center;
+    .img-explains{
+      margin: -8% auto 0px auto;
+      width: 90%;
+    }
   }
 }

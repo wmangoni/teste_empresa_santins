@@ -16,6 +16,9 @@ class PageRepository extends AbstractCrudRepository
      * @param $slug
      */
     public function getPage($slug){
-        return $this->newQuery()->where('slug', '=', str_slug($slug))->first();
+        return $this->newQuery()
+            ->where('slug', '=', str_slug($slug))
+            ->where('active', '=', true)
+            ->first();
     }
 }

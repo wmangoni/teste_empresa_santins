@@ -8098,8 +8098,12 @@ button.close {
     width: 100%;
     height: 130px;
     margin-top: -23px; }
-  #web > .container {
-    margin-top: 30px; }
+  #web .page-error {
+    font-size: 18px;
+    text-align: center; }
+    #web .page-error .img-explains {
+      margin: -8% auto 0px auto;
+      width: 90%; }
 
 #web .footer {
   height: 269px;

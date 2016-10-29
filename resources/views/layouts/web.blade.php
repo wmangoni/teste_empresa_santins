@@ -20,19 +20,19 @@
     </script>
 </head>
 <body id="web">
-    @include('layouts/web/navbar')
+@inject('pageGen', 'App\Services\PageGenService')
+@include('layouts/web/navbar')
 
-    <div class="header-background">
+<div class="header-background">
+</div>
 
-    </div>
+<section class="container">
+    @yield('content')
+</section>
 
-    <section class="container">
-        @yield('content')
-    </section>
-
-    <footer class="footer">
-        @include('layouts/web/footer')
-    </footer>
+<footer class="footer">
+    @include('layouts/web/footer')
+</footer>
 
 <script src="{{ elixir('js/app.js') }}"></script>
 </body>
