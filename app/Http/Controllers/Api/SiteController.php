@@ -25,7 +25,7 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
+        return view('api.manager.site.create');
     }
 
     /**
