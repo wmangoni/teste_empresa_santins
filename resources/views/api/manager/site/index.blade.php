@@ -34,7 +34,7 @@
                                     </div>
                                 </div>
                             @empty
-                                Nenhuma página foi adicionar ao site...
+                                Nenhuma página foi adicionada ao site...
                             @endforelse
                         </div>
                     </div>

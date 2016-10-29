@@ -15,4 +15,9 @@ class Page extends Model
     ];
     protected $dates = ['deleted_at'];
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
+
 }

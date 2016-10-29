@@ -15,11 +15,12 @@ class CreatePagesTable extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('title');
-            $table->text('description');
-            $table->string('symbol', 25);
-            $table->string('color_symbol', 15);
+            $table->text('description')->nullable();
+            $table->string('symbol', 25)->nullable();
+            $table->string('color_symbol', 15)->nullable();
+            $table->boolean('active')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });
