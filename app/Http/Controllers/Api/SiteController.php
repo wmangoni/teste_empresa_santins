@@ -19,6 +19,7 @@ class SiteController extends Controller
     {
         $this->setPageTitle('Gerenciador do site');
         $pages = $this->pageRepo->getAll()->sortBy('title');
+
         return view('api.manager.site.index')
             ->with('pages', $pages);
     }
@@ -59,6 +60,16 @@ class SiteController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function visibility($id, $isVisible)
+    {
+        try {
+            ($isVisible) ? $this->pageRepo->inactiveThePage($id) : $this->pageRepo->activeThePage($id);
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
+        return redirect()->back();
     }
 
     /**

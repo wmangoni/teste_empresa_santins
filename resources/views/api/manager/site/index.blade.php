@@ -27,9 +27,17 @@
                                             <a class="btn btn-xs btn-info">
                                                 <i class="fa fa-edit"></i>Editar
                                             </a>
-                                            <a class="btn btn-xs btn-danger">
-                                                <i class="fa fa-exclamation-triangle"></i>Inativar
-                                            </a>
+                                            @if($page->active)
+                                                <a href="{{route('manager.site.switch', [$page->id,  $page->active])}}"
+                                                   class="btn btn-xs btn-danger">
+                                                    <i class="fa fa-eye-slash"></i>Esconder
+                                                </a>
+                                            @else
+                                                <a href="{{route('manager.site.switch', [$page->id,  $page->active])}}"
+                                                   class="btn btn-xs btn-success">
+                                                    <i class="fa fa-eye"></i>Mostrar
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
