@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Aerovale') }}
+                <img src="img/aerovale-brand.jpg" class="navbar-brand-img">
             </a>
         </div>
 
@@ -22,12 +22,19 @@
             <ul class="nav navbar-nav">
                 &nbsp;
             </ul>
-
+            <div class="container-search-bar">
+                <input id="search-bar" type="text" name="search"/>
+            </div>
             <!-- Right Side Of Navbar -->
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right menus">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="/">Home</a></li>
+                    <li><a href="/">Empreendimento</a></li>
+                    <li><a href="/">Infraestrutura</a></li>
+                    <li><a href="/">Galeria</a></li>
+                    <li><a href="/">Mídia</a></li>
+                    <li><a href="/">Contato</a></li>
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
                 @else

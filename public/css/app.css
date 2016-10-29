@@ -5790,14 +5790,53 @@ button.close {
 
 @media screen and (min-width: 770px) {
   .navbar {
-    height: 100px; } }
+    height: 120px; } }
 
-.navbar .nav {
-  position: relative;
-  bottom: 0px;
-  right: 0px; }
-  .navbar .nav li a {
-    text-transform: uppercase;
-    padding: 15px; }
+.navbar .container {
+  position: relative; }
+  .navbar .container .navbar-header {
+    position: relative;
+    overflow-y: hidden; }
+    @media screen and (min-width: 770px) {
+      .navbar .container .navbar-header {
+        height: 115px !important;
+        width: 200px !important; } }
+    .navbar .container .navbar-header a {
+      overflow-y: hidden; }
+      @media screen and (max-width: 769px) {
+        .navbar .container .navbar-header a .navbar-brand-img {
+          position: absolute;
+          top: 0px;
+          height: 60px;
+          width: 60px; } }
+      @media screen and (min-width: 770px) {
+        .navbar .container .navbar-header a .navbar-brand-img {
+          position: absolute;
+          height: 100%;
+          top: 10px;
+          left: 25%; } }
+  @media screen and (min-width: 770px) {
+    .navbar .container #app-navbar-collapse {
+      height: 100% !important; } }
+  @media screen and (min-width: 770px) {
+    .navbar .container #app-navbar-collapse .container-search-bar {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 250px;
+      margin: 0px 30px; } }
+  .navbar .container #app-navbar-collapse .container-search-bar #search-bar {
+    background-color: grey;
+    width: 100% !important; }
+  .navbar .container #app-navbar-collapse .menus {
+    margin: 15px 15px; }
+    @media screen and (min-width: 770px) {
+      .navbar .container #app-navbar-collapse .menus {
+        position: absolute;
+        bottom: 0px;
+        right: 0px; } }
+    .navbar .container #app-navbar-collapse .menus li a {
+      text-transform: uppercase;
+      padding: 15px; }
 
 /*# sourceMappingURL=app.css.map */
