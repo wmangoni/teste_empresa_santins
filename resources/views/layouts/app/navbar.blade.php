@@ -23,7 +23,11 @@
             </ul>
                 @if(!Auth::guest())
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="{{ url('/api/gerenciar/site') }}">Gerenciar site</a></li>
+                        <li class="{{Route::currentRouteName() == 'manager.site' ? 'active' : ''}}">
+                            <a href="{{ url('/api/gerenciar/site') }}">
+                                <i class="fa fa-gears"></i>Gerenciar site
+                            </a>
+                        </li>
                     </ul>
                 @endif
 
@@ -37,7 +41,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-user"></i>{{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">

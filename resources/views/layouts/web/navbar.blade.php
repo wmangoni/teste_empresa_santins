@@ -13,7 +13,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="img/aerovale-brand.jpg" class="navbar-brand-img">
+                <img src="/img/aerovale-brand.jpg" class="navbar-brand-img">
             </a>
         </div>
 
@@ -28,13 +28,17 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right menus">
                 <!-- Authentication Links -->
-
-                <li><a href="/">Home</a></li>
-                <li><a href="/">Empreendimento</a></li>
-                <li><a href="/">Infraestrutura</a></li>
-                <li><a href="/">Galeria</a></li>
-                <li><a href="/">Mídia</a></li>
-                <li><a href="/">Contato</a></li>
+                @forelse($pageGen->getActivePages() as $page)
+                    <li><a href="/site/{{$page->slug}}">
+                            @if($page->symbol)
+                                <i class="fa fa-circle" style="color: {{$page->color_symbol}}"></i>
+                            @endif
+                            {{$page->title}}
+                        </a>
+                    </li>
+                @empty
+                    <li><a href="/">Home</a></li>
+                @endforelse
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                     <li><a href="{{ url('/register') }}">Register</a></li>
@@ -42,13 +46,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            <i class="fa fa-user"></i> {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="{{ url('/api') }}">
-                                  Voltar
+                                    Voltar
                                 </a>
                             </li>
                             <li>

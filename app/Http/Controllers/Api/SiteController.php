@@ -2,20 +2,26 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Domains\Pages\PageRepository;
 use Illuminate\Http\Request;
+use Mockery\CountValidator\Exception;
 
 class SiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $pageRepo;
+
+    public function __construct(PageRepository $pageRepo)
+    {
+        $this->pageRepo = $pageRepo;
+    }
+
     public function index()
     {
         $this->setPageTitle('Gerenciador do site');
+        $pages = $this->pageRepo->getAll()->sortBy('title');
 
-        return view('api.manager.site.index');
+        return view('api.manager.site.index')
+            ->with('pages', $pages);
     }
 
     /**
@@ -25,7 +31,8 @@ class SiteController extends Controller
      */
     public function create()
     {
-        //
+        $this->setPageTitle('Nova página');
+        return view('api.manager.site.create');
     }
 
     /**
@@ -36,7 +43,12 @@ class SiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $this->pageRepo->create($request->all());
+            return redirect()->route('manager.site');
+        } catch (Exception $e) {
+            return redirect()->back();
+        }
     }
 
     /**
@@ -50,6 +62,15 @@ class SiteController extends Controller
         //
     }
 
+    public function visibility($id, $isVisible)
+    {
+        try {
+            ($isVisible) ? $this->pageRepo->inactiveThePage($id) : $this->pageRepo->activeThePage($id);
+        } catch (Exception $e) {
+        }
+        return redirect()->back();
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,7 +79,9 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->setPageTitle('Edição da página');
+        $page = $this->pageRepo->findByID($id);
+        return view('api.manager.site.edit')->with('page', $page);
     }
 
     /**
@@ -70,7 +93,7 @@ class SiteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
