@@ -8179,4 +8179,7 @@ button.close {
       height: 60px;
       width: 60px; }
 
+a i, span i {
+  margin: 0px 10px 0px 0px; }
+
 /*# sourceMappingURL=app.css.map */
