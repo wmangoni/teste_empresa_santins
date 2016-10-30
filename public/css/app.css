@@ -8098,8 +8098,15 @@ button.close {
     width: 100%;
     height: 130px;
     margin-top: -23px; }
+    @media screen and (max-width: 769px) {
+      #web .header-background {
+        width: 100%;
+        height: 100px; } }
     #web .header-background .container .page-title {
       margin-top: 45px; }
+      @media screen and (max-width: 769px) {
+        #web .header-background .container .page-title {
+          margin-top: 30px; } }
       #web .header-background .container .page-title i {
         margin: 0px 30px 0px 0px; }
   #web > .container .description {
@@ -8138,25 +8145,24 @@ button.close {
   position: relative; }
   #navbar-web .container .navbar-header {
     position: relative;
-    overflow-y: hidden; }
+    overflow-y: hidden;
+    left: -5px; }
     @media screen and (min-width: 770px) {
       #navbar-web .container .navbar-header {
         height: 115px !important;
         width: 200px !important; } }
-    #navbar-web .container .navbar-header a {
-      overflow-y: hidden; }
-      @media screen and (max-width: 769px) {
-        #navbar-web .container .navbar-header a .navbar-brand-img {
-          position: absolute;
-          top: 0px;
-          height: 60px;
-          width: 60px; } }
-      @media screen and (min-width: 770px) {
-        #navbar-web .container .navbar-header a .navbar-brand-img {
-          position: absolute;
-          height: 100%;
-          top: 10px;
-          left: 25%; } }
+    @media screen and (max-width: 769px) {
+      #navbar-web .container .navbar-header a .navbar-brand-img {
+        position: absolute;
+        top: 0px;
+        height: 60px;
+        width: 60px; } }
+    @media screen and (min-width: 770px) {
+      #navbar-web .container .navbar-header a .navbar-brand-img {
+        position: absolute;
+        height: 100%;
+        top: 10px;
+        left: 0px; } }
   @media screen and (min-width: 770px) {
     #navbar-web .container #app-navbar-collapse {
       height: 100% !important; } }
