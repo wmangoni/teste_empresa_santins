@@ -19,7 +19,8 @@
         ]); ?>
     </script>
 </head>
-<body id="web">
+<body >
+<div id="web">
 @inject('pageGen', 'App\Services\PageGenService')
 @include('layouts/web/navbar')
 
@@ -35,10 +36,11 @@
     @yield('content')
 </section>
 
+</div>
+
 <footer class="footer">
     @include('layouts/web/footer')
 </footer>
-
 <script src="{{ elixir('js/app.js') }}"></script>
 @yield('script')
 </body>

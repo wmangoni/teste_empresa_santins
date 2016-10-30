@@ -8091,7 +8091,12 @@ button.close {
   overflow: visible;
   clip: auto; }
 
+body {
+  background-color: white; }
+
 #web {
+  height: auto;
+  min-height: 100%;
   background: #FFFFFF; }
   #web .header-background {
     background-color: lightgrey;
@@ -8118,24 +8123,72 @@ button.close {
       margin: -8% auto 0px auto;
       width: 90%; }
 
-#web .footer {
+.footer {
+  position: absolute;
   height: 269px;
   background: #000;
-  position: absolute;
   bottom: 0px;
   width: 100%; }
-  #web .footer .title {
-    color: #244B66;
-    font-size: 16px;
-    font-weight: bold; }
-  #web .footer p {
-    color: #ffffff; }
-  #web .footer .copyright {
-    position: absolute;
+  .footer .copyright {
     width: 100%;
     bottom: 0px;
     padding: 10px 0px;
     background: #101010; }
+  .footer .title {
+    color: #244B66;
+    font-size: 16px;
+    font-weight: bold; }
+  .footer p {
+    color: #ffffff; }
+  .footer #site-map {
+    padding-top: 30px; }
+    .footer #site-map .map-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0px;
+      padding: 2px 0px;
+      border-bottom: 2px solid #636b6f; }
+    .footer #site-map .map {
+      margin-top: 15px; }
+      .footer #site-map .map ul {
+        padding: 0px;
+        list-style: none; }
+        .footer #site-map .map ul li a {
+          font-weight: bold;
+          color: #F8F8F8 !important; }
+  .footer #contacts {
+    padding-top: 30px; }
+    .footer #contacts .contact-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0px;
+      padding: 2px 0px;
+      border-bottom: 2px solid #636b6f; }
+    .footer #contacts .contact {
+      margin-top: 15px; }
+      .footer #contacts .contact ul {
+        padding: 0px;
+        list-style: none; }
+        .footer #contacts .contact ul li:first-child {
+          font-size: 20px; }
+        .footer #contacts .contact ul li {
+          font-weight: bold;
+          color: #F8F8F8 !important; }
+  .footer #social-media {
+    padding-top: 30px;
+    text-align: center; }
+    .footer #social-media .social-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0px;
+      padding: 2px 0px;
+      border-bottom: 2px solid #636b6f; }
+    .footer #social-media .social-icons {
+      margin-top: 15px; }
+      .footer #social-media .social-icons i {
+        margin-right: 20px; }
+      .footer #social-media .social-icons i:last-child {
+        margin-right: 0px; }
 
 @media screen and (min-width: 770px) {
   #navbar-web {
@@ -8190,6 +8243,8 @@ button.close {
 .page-section {
   padding: 30px;
   margin-bottom: 30px; }
+  .page-section ul {
+    padding: 0px; }
 
 /*@import "content";
 @import "footer";
