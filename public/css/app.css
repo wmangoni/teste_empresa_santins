@@ -8187,6 +8187,9 @@ button.close {
       text-transform: uppercase;
       padding: 15px; }
 
+.page-section {
+  padding: 30px; }
+
 /*@import "content";
 @import "footer";
 @import "header";*/
