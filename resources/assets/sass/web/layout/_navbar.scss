@@ -9,14 +9,13 @@
     .navbar-header {
       position: relative;
       overflow-y: hidden;
+      left: -5px;
       @media screen and (min-width: $break-small+1) {
         height: 115px !important;
         width: 200px !important;
       }
 
       a {
-        overflow-y: hidden;
-
         .navbar-brand-img {
           @media screen and (max-width: $break-small) {
             position: absolute;
@@ -28,7 +27,7 @@
             position: absolute;
             height: 100%;
             top: 10px;
-            left: 25%;
+            left: 0px;
           }
         }
       }

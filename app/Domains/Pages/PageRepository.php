@@ -10,7 +10,7 @@ class PageRepository extends AbstractCrudRepository
 
     public function getActives()
     {
-        return $this->newQuery()->where('active', '=', true)->get();
+        return $this->newQuery()->where('active', '=', true)->orderBy('order')->get();
     }
 
     /**
@@ -30,6 +30,7 @@ class PageRepository extends AbstractCrudRepository
             ->where('id', '=', $id)
             ->update(['active' => true]);
     }
+
     public function inactiveThePage($id)
     {
         return $this->newQuery()

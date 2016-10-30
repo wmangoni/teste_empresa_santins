@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->string('slug')->unique();
             $table->string('title');
             $table->text('description')->nullable();
+            $table->integer('order')->nullable();
             $table->string('symbol', 25)->nullable();
             $table->string('color_symbol', 15)->nullable();
             $table->boolean('active')->default(false);

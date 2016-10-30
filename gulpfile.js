@@ -20,4 +20,5 @@ elixir((mix) => {
 
 elixir(function(mix) {
     mix.copy('node_modules/font-awesome/fonts/', 'public/fonts/');
+    mix.copy('node_modules/quill/dist/', 'public/js/quill');
 });

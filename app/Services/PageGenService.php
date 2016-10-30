@@ -24,4 +24,11 @@ class PageGenService
         return $this->pageRepository->getActives();
     }
 
+    public function getInfoFromPage($current_page){
+        $url_splitted = explode("/", $current_page);
+        $url = end($url_splitted);
+        if(!$url)
+            $url= 'home';
+        return $this->pageRepository->getPage($url);
+    }
 }

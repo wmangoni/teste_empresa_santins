@@ -11,13 +11,18 @@ class Page extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'slug', 'title', 'description', 'symbol', 'color_symbol', 'created_at', 'updated_at'
+        'slug', 'title', 'description', 'order', 'symbol', 'color_symbol', 'created_at', 'updated_at'
     ];
     protected $dates = ['deleted_at'];
 
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = str_slug($value);
+    }
+
+    public function sections()
+    {
+        return $this->hasMany('App\Domains\Pages\SectionPage');
     }
 
 }

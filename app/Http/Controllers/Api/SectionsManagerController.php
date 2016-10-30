@@ -3,24 +3,27 @@
 namespace App\Http\Controllers\Api;
 
 use App\Domains\Pages\PageRepository;
+use App\Domains\Pages\SectionPageRepository;
 use Illuminate\Http\Request;
 use Mockery\CountValidator\Exception;
 
-class SiteController extends Controller
+class SectionsManagerController extends Controller
 {
     private $pageRepo;
+    private $sectionRepo;
 
-    public function __construct(PageRepository $pageRepo)
+    public function __construct(PageRepository $pageRepo, SectionPageRepository $sectionRepo)
     {
         $this->pageRepo = $pageRepo;
+        $this->sectionRepo = $sectionRepo;
     }
 
     public function index()
     {
-        $this->setPageTitle('Gerenciador do site');
+        $this->setPageTitle('Gerenciador de seções das páginas');
         $pages = $this->pageRepo->getAll()->sortBy('order');
 
-        return view('api.manager.site.index')
+        return view('api.manager.site.section.index')
             ->with('pages', $pages);
     }
 
@@ -29,10 +32,11 @@ class SiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($page_id)
     {
-        $this->setPageTitle('Nova página');
-        return view('api.manager.site.create');
+        $page = $this->pageRepo->findByID($page_id);
+        $this->setPageTitle('Nova seção para a página: ' . $page->title);
+        return view('api.manager.site.section.create')->with('page_id', $page->id);
     }
 
     /**
@@ -44,8 +48,8 @@ class SiteController extends Controller
     public function store(Request $request)
     {
         try {
-            $this->pageRepo->create($request->all());
-            return redirect()->route('manager.site');
+            $this->sectionRepo->create($request->all());
+            return redirect()->route('manager.site.section');
         } catch (Exception $e) {
             return redirect()->back();
         }
@@ -79,9 +83,12 @@ class SiteController extends Controller
      */
     public function edit($id)
     {
-        $this->setPageTitle('Edição da página');
-        $page = $this->pageRepo->findByID($id);
-        return view('api.manager.site.edit')->with('page', $page);
+
+        $section = $this->sectionRepo->findByID($id);
+        $page = $this->pageRepo->findByID($section->page_id);
+        $this->setPageTitle('Edição da seção da página: ' . $page->title);
+
+        return view('api.manager.site.section.edit')->with('section', $section);
     }
 
     /**
@@ -94,12 +101,12 @@ class SiteController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $page = $this->pageRepo->findByID($id);
+            $page = $this->sectionRepo->findByID($id);
             $page->update($request->all());
-        }catch (Exception $e){
+        } catch (Exception $e) {
 
         }
-        return redirect()->route('manager.site');
+        return redirect()->route('manager.site.section');
     }
 
     /**

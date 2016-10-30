@@ -19,21 +19,29 @@
         ]); ?>
     </script>
 </head>
-<body id="web">
+<body >
+<div id="web">
 @inject('pageGen', 'App\Services\PageGenService')
 @include('layouts/web/navbar')
 
 <div class="header-background">
+    <div class="container">
+        <div class="page-title">
+            <h1><i class="fa fa-{{$pageGen->getInfoFromPage(url()->current())['symbol']}}"></i>{{$pageGen->getInfoFromPage(url()->current())['title']}}</h1>
+        </div>
+    </div>
 </div>
 
 <section class="container">
     @yield('content')
 </section>
 
+</div>
+
 <footer class="footer">
     @include('layouts/web/footer')
 </footer>
-
 <script src="{{ elixir('js/app.js') }}"></script>
+@yield('script')
 </body>
 </html>
