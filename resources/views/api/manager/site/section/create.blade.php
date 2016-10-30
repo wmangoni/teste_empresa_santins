@@ -109,11 +109,25 @@
 
                             <div class="col-md-6">
                                 <input id="box_color" type="text" class="form-control" name="box_color"
-                                       value="{{ old('box_color') }}" placeholder="Cor no padrão Hex: #d92626">
+                                       value="{{ old('box_color') }}" placeholder="Cores aceitas pelo CSS">
 
                                 @if ($errors->has('box_color'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('box_color') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('text_color') ? ' has-error' : '' }}">
+                            <label for="text_color" class="col-md-4 control-label">Cor da seção</label>
+
+                            <div class="col-md-6">
+                                <input id="text_color" type="text" class="form-control" name="text_color"
+                                       value="{{ old('text_color') }}" placeholder="Cores aceitas pelo CSS">
+
+                                @if ($errors->has('text_color'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('text_color') }}</strong>
                                     </span>
                                 @endif
                             </div>

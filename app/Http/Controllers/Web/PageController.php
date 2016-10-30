@@ -20,7 +20,9 @@ class PageController extends Controller
     public function show($slug = 'home')
     {
         $page = $this->pageRepo->getPage($slug);
-        $sections = $this->sectionRepo->getSectionsFromPage($page->id);
+        $sections = "";
+        if (count($page))
+            $sections = $this->sectionRepo->getSectionsFromPage($page->id);
 
         return (count($page)) ? View('web.page_generated')->with('page', $page)->with('sections', $sections) : View('errors.204');
     }

@@ -11,7 +11,8 @@
     <div class="row">
         @forelse($sections as $sec)
             <div class="col-lg-{{$sec->col_lg}} col-md-{{$sec->col_md}} col-sm-{{$sec->col_sm}} col-xs-{{$sec->col_xs}}">
-                <div class="page-section" style="background-color: {{$sec->box_color}}" >
+                <div class="page-section"
+                     style="background-color: {{$sec->box_color}} !important; color: {{$sec->text_color}} !important;">
                     {!! $sec->description !!}
                 </div>
             </div>

@@ -8188,7 +8188,8 @@ button.close {
       padding: 15px; }
 
 .page-section {
-  padding: 30px; }
+  padding: 30px;
+  margin-bottom: 30px; }
 
 /*@import "content";
 @import "footer";

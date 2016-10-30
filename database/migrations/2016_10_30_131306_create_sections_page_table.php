@@ -14,6 +14,7 @@ class CreateSectionsPageTable extends Migration
             $table->text('description');
             $table->integer('order')->nullable();
             $table->string('box_color')->nullable();
+            $table->string('text_color')->nullable()->default('#000000');
             $table->integer('page_id')->unsigned();
             $table->integer('col_lg')->unsigned()->default(12);
             $table->integer('col_md')->unsigned()->default(12);
