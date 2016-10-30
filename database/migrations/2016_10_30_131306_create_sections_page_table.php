@@ -12,6 +12,7 @@ class CreateSectionsPageTable extends Migration
         Schema::create('sections_page', function (Blueprint $table) {
             $table->increments('id');
             $table->text('description');
+            $table->integer('order')->nullable();
             $table->string('box_color')->nullable();
             $table->integer('page_id')->unsigned();
 

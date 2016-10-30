@@ -8,32 +8,16 @@ class SectionPageRepository extends AbstractCrudRepository
 {
     protected $modelClass = SectionPage::class;
 
-    public function getActives()
-    {
-        return $this->newQuery()->where('active', '=', true)->get();
-    }
-
     /**
-     * @param $slug
+     * @param $id
+     * @return \Illuminate\Database\Eloquent\Model|null|static
      */
-    public function getPage($slug)
+    public function getSectionsFromPage($id)
     {
         return $this->newQuery()
-            ->where('slug', '=', str_slug($slug))
-            ->where('active', '=', true)
-            ->first();
+            ->where('page_id', '=', $id)
+            ->orderBy('order')
+            ->get();
     }
 
-    public function activeThePage($id)
-    {
-        return $this->newQuery()
-            ->where('id', '=', $id)
-            ->update(['active' => true]);
-    }
-    public function inactiveThePage($id)
-    {
-        return $this->newQuery()
-            ->where('id', '=', $id)
-            ->update(['active' => false]);
-    }
 }

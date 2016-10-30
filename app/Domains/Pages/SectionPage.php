@@ -10,7 +10,7 @@ class SectionPage extends Model
     use Notifiable;
 
     protected $fillable = [
-        'description', 'box_color', 'created_at', 'updated_at'
+        'description', 'order', 'box_color', 'created_at', 'updated_at'
     ];
 
     public function page()

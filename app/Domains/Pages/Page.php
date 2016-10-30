@@ -11,7 +11,7 @@ class Page extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'slug', 'title', 'description', 'symbol', 'color_symbol', 'created_at', 'updated_at'
+        'slug', 'title', 'description', 'order', 'symbol', 'color_symbol', 'created_at', 'updated_at'
     ];
     protected $dates = ['deleted_at'];
 
