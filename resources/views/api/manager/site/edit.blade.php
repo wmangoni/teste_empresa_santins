@@ -31,6 +31,20 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
+                            <label for="order" class="col-md-4 control-label">Ordem</label>
+
+                            <div class="col-md-6">
+                                <input id="order" type="number" min="1" class="form-control" name="order"
+                                       value="{{ old('order', $page->order) }}">
+
+                                @if ($errors->has('order'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('order') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Título</label>
 
@@ -50,7 +64,7 @@
                             <label for="description" class="col-md-4 control-label">Descrição</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control" name="description" required>{{ old('description', $page->description) }}</textarea>
+                                <textarea id="description" class="form-control" name="description">{{ old('description', $page->description) }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -66,7 +80,7 @@
                             <div class="col-md-6">
                                 <input id="symbol" type="text" class="form-control" name="symbol"
                                        value="{{ old('symbol', $page->symbol) }}"
-                                       placeholder="Apenas nome do ícone do Font-Awesome" required>
+                                       placeholder="Apenas nome do ícone do Font-Awesome">
 
                                 @if ($errors->has('symbol'))
                                     <span class="help-block">
@@ -82,7 +96,7 @@
                             <div class="col-md-6">
                                 <input id="color_symbol" type="text" class="form-control" name="color_symbol"
                                        value="{{ old('color_symbol',$page->color_symbol) }}"
-                                       placeholder="Cor no padrão Hex: #d92626" required>
+                                       placeholder="Cor no padrão Hex: #d92626">
 
                                 @if ($errors->has('color_symbol'))
                                     <span class="help-block">
