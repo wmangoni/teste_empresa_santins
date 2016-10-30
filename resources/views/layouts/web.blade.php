@@ -24,6 +24,11 @@
 @include('layouts/web/navbar')
 
 <div class="header-background">
+    <div class="container">
+        <div class="page-title">
+            <h1><i class="fa fa-{{$pageGen->getInfoFromPage(url()->current())['symbol']}}"></i>{{$pageGen->getInfoFromPage(url()->current())['title']}}</h1>
+        </div>
+    </div>
 </div>
 
 <section class="container">
