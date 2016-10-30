@@ -94,7 +94,7 @@
 
                             <div class="col-md-6">
                                 <textarea id="description" class="form-control" name="description"
-                                          value="{{ old('description') }}"></textarea>
+                                          value="{{ old('description') }}" required></textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">

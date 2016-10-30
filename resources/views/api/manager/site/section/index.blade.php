@@ -26,7 +26,7 @@
                                                 {{str_limit($section->description, 100)}}
                                             </div>
                                             <div class="col-lg-6 text-right">
-                                                <a href="{{route('manager.site.section.edit', $page->id)}}"
+                                                <a href="{{route('manager.site.section.edit', $section->id)}}"
                                                    class="btn btn-xs btn-info">
                                                     <i class="fa fa-edit"></i>Editar
                                                 </a>

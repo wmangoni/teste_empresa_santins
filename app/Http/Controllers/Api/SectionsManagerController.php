@@ -83,9 +83,12 @@ class SectionsManagerController extends Controller
      */
     public function edit($id)
     {
-        $this->setPageTitle('Edição da página');
-        $page = $this->pageRepo->findByID($id);
-        return view('api.manager.site.edit')->with('page', $page);
+
+        $section = $this->sectionRepo->findByID($id);
+        $page = $this->pageRepo->findByID($section->page_id);
+        $this->setPageTitle('Edição da seção da página: ' . $page->title);
+
+        return view('api.manager.site.section.edit')->with('section', $section);
     }
 
     /**
@@ -98,12 +101,12 @@ class SectionsManagerController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $page = $this->pageRepo->findByID($id);
+            $page = $this->sectionRepo->findByID($id);
             $page->update($request->all());
         } catch (Exception $e) {
 
         }
-        return redirect()->route('manager.site');
+        return redirect()->route('manager.site.section');
     }
 
     /**

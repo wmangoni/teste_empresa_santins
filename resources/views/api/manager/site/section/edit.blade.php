@@ -94,8 +94,7 @@
                             <label for="description" class="col-md-4 control-label">Descrição</label>
 
                             <div class="col-md-6">
-                                <textarea id="description" class="form-control" name="description"
-                                          value="{{ old('description', $section->description) }}"></textarea>
+                                <textarea id="description" class="form-control" name="description" required>{{ old('description', $section->description) }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">

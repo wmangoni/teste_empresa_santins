@@ -22,7 +22,7 @@ class SectionsPageTableSeeder extends Seeder
             'box_color' => "#645490",
         ], [
             'page_id'=> 3,
-            'order' => 1,
+            'order' => 2,
             'col_lg' => 4,
             'col_md' => 4,
             'col_sm' => 4,
@@ -31,7 +31,7 @@ class SectionsPageTableSeeder extends Seeder
             'box_color' => "#37A4DD",
         ], [
             'page_id'=> 3,
-            'order' => 1,
+            'order' => 3,
             'col_lg' => 4,
             'col_md' => 4,
             'col_sm' => 4,

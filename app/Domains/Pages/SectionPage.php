@@ -12,7 +12,7 @@ class SectionPage extends Model
     protected $table = 'sections_page';
 
     protected $fillable = [
-        'description', 'order', 'box_color', 'page_id', 'created_at', 'updated_at'
+        'description', 'order', 'col_lg', 'col_md', 'col_sm', 'col_xs', 'box_color', 'page_id', 'created_at', 'updated_at'
     ];
 
     public function page()
