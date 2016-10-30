@@ -1,6 +1,9 @@
 @extends('layouts.web')
 
 @section('content')
-    <h1>{{$page->title}}</h1>
-    <h2>{{$page->description}}</h2>
+    <div class="col-lg-12 col-md-12  col-sm-12  col-xs-12">
+        <div class="description">
+            {{$page->description}}
+        </div>
+    </div>
 @endsection

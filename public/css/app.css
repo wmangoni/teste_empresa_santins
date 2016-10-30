@@ -8102,6 +8102,8 @@ button.close {
       margin-top: 45px; }
       #web .header-background .container .page-title i {
         margin: 0px 30px 0px 0px; }
+  #web > .container .description {
+    margin: 45px 0px 25px 0px; }
   #web .page-error {
     font-size: 18px;
     text-align: center; }
