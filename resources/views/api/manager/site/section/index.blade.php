@@ -23,7 +23,7 @@
                                     <div href="#" class="list-group-item">
                                         <div class="row">
                                             <div class="col-lg-6">
-                                                {{str_limit($section->description, 100)}}
+                                                {!! str_limit($section->title, 100) !!}
                                             </div>
                                             <div class="col-lg-6 text-right">
                                                 <a href="{{route('manager.site.section.edit', $section->id)}}"

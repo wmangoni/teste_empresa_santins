@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST"  enctype="multipart/form-data"
+                    <form class="form-horizontal" role="form" method="POST"
                           action="{{ route('manager.site.section.update', $section->id) }}">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
@@ -118,14 +118,25 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
+                            <label for="title" class="col-md-4 control-label">Título</label>
 
+                            <div class="col-md-6">
+                                <input id="title" type="text" class="form-control" name="title"
+                                       value="{{ old('title', $section->title) }}" required>
+
+                                @if ($errors->has('title'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('title') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
-                                <textarea id="description" class="form-control hidden" name="description"
+                                <textarea id="description" class="form-control" name="description"
                                            required>{!! old('description', $section->description) !!}</textarea>
-
-                                <div id="editor"></div>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -149,33 +160,18 @@
 @endsection
 
 @section('script')
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
     <script>
-        var toolbarOptions = [
-            [{'header': [1, 2, 3, 4, 5, 6, false]}],
-            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-            [{'list': 'ordered'}, {'list': 'bullet'}],
-            [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
-            [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
-            [{'direction': 'rtl'}],                         // text direction
-            [{'font': []}],
-            [{'align': []}],
-            ['blockquote', 'code-block'],
-            ['clean']];
-
-        var quill = new Quill('#editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: toolbarOptions
-            }
-        });
-
-        quill.on('text-change', function (delta, oldDelta, source) {
-            $('#description').val(quill.getText());
-        });
-
-
-        $(window).ready(function () {
-            quill.setText($('#description').val());
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            plugins: [
+                'advlist autolink lists charmap  anchor',
+                'searchreplace visualblocks code',
+                'insertdatetime table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            content_css: '//www.tinymce.com/css/codepen.min.css'
         });
     </script>
 @endsection

@@ -12,6 +12,7 @@ class SectionsPageTableSeeder extends Seeder
     public function run()
     {
         DB::table('sections_page')->insert([[
+            'title'=>'Primeira box',
             'page_id'=> 3,
             'order' => 1,
             'col_lg' => 4,
@@ -22,6 +23,7 @@ class SectionsPageTableSeeder extends Seeder
             'box_color' => "#645490",
             'text_color'=> "#FFFFFF",
         ], [
+            'title'=>'Segunda box',
             'page_id'=> 3,
             'order' => 2,
             'col_lg' => 4,
@@ -32,6 +34,7 @@ class SectionsPageTableSeeder extends Seeder
             'box_color' => "#37A4DD",
             'text_color'=> "#FFFFFF",
         ], [
+            'title'=>'Terceira box',
             'page_id'=> 3,
             'order' => 3,
             'col_lg' => 4,
