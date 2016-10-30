@@ -11,6 +11,35 @@ class SectionsPageTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        DB::table('sections_page')->insert([[
+            'page_id'=> 3,
+            'order' => 1,
+            'col_lg' => 4,
+            'col_md' => 4,
+            'col_sm' => 4,
+            'col_xs' => 12,
+            'description' => "Somos a Aerovale, uma empresa pública nacional com mais de 40 anos de experiência, comprometida com as pessoas, com a segurança, o conforto e o bom atendimento. Estamos entre as três maiores operadoras aeroportuárias do mundo e, desde 1973, contribuímos para simplificar e enriquecer a experiência dos clientes, viajantes ou parceiros de negócios, que utilizam nossos 60 aeroportos espalhados pelo Brasil.",
+            'box_color' => "#645490",
+        ], [
+            'page_id'=> 3,
+            'order' => 1,
+            'col_lg' => 4,
+            'col_md' => 4,
+            'col_sm' => 4,
+            'col_xs' => 12,
+            'description' => "Somos a Aerovale, uma empresa pública nacional com mais de 40 anos de experiência, comprometida com as pessoas, com a segurança, o conforto e o bom atendimento. Estamos entre as três maiores operadoras aeroportuárias do mundo e, desde 1973, contribuímos para simplificar e enriquecer a experiência dos clientes, viajantes ou parceiros de negócios, que utilizam nossos 60 aeroportos espalhados pelo Brasil.",
+            'box_color' => "#37A4DD",
+        ], [
+            'page_id'=> 3,
+            'order' => 1,
+            'col_lg' => 4,
+            'col_md' => 4,
+            'col_sm' => 4,
+            'col_xs' => 12,
+            'description' => "Somos a Aerovale, uma empresa pública nacional com mais de 40 anos de experiência, comprometida com as pessoas, com a segurança, o conforto e o bom atendimento. Estamos entre as três maiores operadoras aeroportuárias do mundo e, desde 1973, contribuímos para simplificar e enriquecer a experiência dos clientes, viajantes ou parceiros de negócios, que utilizam nossos 60 aeroportos espalhados pelo Brasil.",
+            'box_color' => "#A0CA4C",
+        ],
+
+        ]);
     }
 }

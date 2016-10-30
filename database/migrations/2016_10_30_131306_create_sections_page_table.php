@@ -15,6 +15,11 @@ class CreateSectionsPageTable extends Migration
             $table->integer('order')->nullable();
             $table->string('box_color')->nullable();
             $table->integer('page_id')->unsigned();
+            $table->integer('col_lg')->unsigned()->default(12);
+            $table->integer('col_md')->unsigned()->default(12);
+            $table->integer('col_sm')->unsigned()->default(12);
+            $table->integer('col_xs')->unsigned()->default(12);
+            $table->timestamps();
 
             $table->foreign('page_id')->references('id')->on('pages');
         });

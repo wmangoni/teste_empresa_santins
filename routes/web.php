@@ -29,6 +29,12 @@ Route::group(['namespace' => 'Api', 'prefix' => 'api', 'middleware' => 'auth'], 
     Route::post('gerenciar/site/criar-pagina', 'SiteController@store')->name('manager.site.store');
 
 
+    Route::get('gerenciar/site/secao', 'SectionsManagerController@index')->name('manager.site.section');
+    Route::get('gerenciar/site/pagina/{id}/secao/nova-secao', 'SectionsManagerController@create')->name('manager.site.section.create');
+    Route::get('gerenciar/site/secao/{id}/editar', 'SectionsManagerController@edit')->name('manager.site.section.edit');
+    Route::put('gerenciar/site/secao/{id}/atualizar', 'SectionsManagerController@update')->name('manager.site.section.update');
+    Route::post('gerenciar/site/secao/criar-secao', 'SectionsManagerController@store')->name('manager.site.section.store');
+
     Route::get('/', 'HomeController@index')->name('api.home');
 });
 

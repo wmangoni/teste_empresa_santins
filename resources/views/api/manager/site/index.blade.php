@@ -11,8 +11,12 @@
                 <div class="panel-body">
                     <div class="panel panel-info">
                         <div class="panel-heading"><b>Páginas</b>
+
                             <a href="{{route("manager.site.create")}}" class="btn btn-default pull-right btn-xs">
                                 <i class="fa fa-plus text-primary"></i>Nova
+                            </a>
+                            <a href="{{route("manager.site.section")}}" class="btn btn-default pull-right btn-xs">
+                                <i class="fa fa-gear text-default"></i>Gerenciar seções
                             </a>
                         </div>
 

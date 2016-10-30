@@ -9,8 +9,10 @@ class SectionPage extends Model
 {
     use Notifiable;
 
+    protected $table = 'sections_page';
+
     protected $fillable = [
-        'description', 'order', 'box_color', 'created_at', 'updated_at'
+        'description', 'order', 'box_color', 'page_id', 'created_at', 'updated_at'
     ];
 
     public function page()
