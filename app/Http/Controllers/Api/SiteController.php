@@ -18,7 +18,7 @@ class SiteController extends Controller
     public function index()
     {
         $this->setPageTitle('Gerenciador do site');
-        $pages = $this->pageRepo->getAll()->sortBy('title');
+        $pages = $this->pageRepo->getAll()->sortBy('order');
 
         return view('api.manager.site.index')
             ->with('pages', $pages);
