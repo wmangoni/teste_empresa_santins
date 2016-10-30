@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/js/quill/quill.core.css" rel="stylesheet">
+    <link href="/js/quill/quill.bubble.css" rel="stylesheet">
+    <link href="/js/quill/quill.snow.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -30,5 +33,7 @@
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>
+<script src="/js/quill/quill.min.js"></script>
+@yield('script')
 </body>
 </html>

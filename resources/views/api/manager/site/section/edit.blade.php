@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST"
+                    <form class="form-horizontal" role="form" method="POST"  enctype="multipart/form-data"
                           action="{{ route('manager.site.section.update', $section->id) }}">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
@@ -90,20 +90,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="description" class="col-md-4 control-label">Descrição</label>
-
-                            <div class="col-md-6">
-                                <textarea id="description" class="form-control" name="description" required>{{ old('description', $section->description) }}</textarea>
-
-                                @if ($errors->has('description'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <div class="form-group{{ $errors->has('box_color') ? ' has-error' : '' }}">
                             <label for="box_color" class="col-md-4 control-label">Cor da seção</label>
 
@@ -132,9 +118,25 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+
+                            <div class="col-md-12">
+                                <textarea id="description" class="form-control hidden" name="description"
+                                           required>{!! old('description', $section->description) !!}</textarea>
+
+                                <div id="editor"></div>
+
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-success">
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-success pull-right">
                                     <i class="fa fa-floppy-o"></i>Salvar
                                 </button>
                             </div>
@@ -144,4 +146,36 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        var toolbarOptions = [
+            [{'header': [1, 2, 3, 4, 5, 6, false]}],
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            [{'list': 'ordered'}, {'list': 'bullet'}],
+            [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
+            [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
+            [{'direction': 'rtl'}],                         // text direction
+            [{'font': []}],
+            [{'align': []}],
+            ['blockquote', 'code-block'],
+            ['clean']];
+
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: toolbarOptions
+            }
+        });
+
+        quill.on('text-change', function (delta, oldDelta, source) {
+            $('#description').val(quill.getText());
+        });
+
+
+        $(window).ready(function () {
+            quill.setText($('#description').val());
+        });
+    </script>
 @endsection

@@ -75,7 +75,8 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('col_xs') ? ' has-error' : '' }}">
-                            <label for="col_xs" class="col-md-4 control-label">Coluna tela muito pequena ( < 768px )</label>
+                            <label for="col_xs" class="col-md-4 control-label">Coluna tela muito pequena ( < 768px
+                                )</label>
 
                             <div class="col-md-6">
                                 <input id="col_xs" type="number" min="1" max="12" class="form-control" name="col_xs"
@@ -89,20 +90,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                            <label for="description" class="col-md-4 control-label">Descrição</label>
-
-                            <div class="col-md-6">
-                                <textarea id="description" class="form-control" name="description"
-                                          value="{{ old('description') }}" required></textarea>
-
-                                @if ($errors->has('description'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('description') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group{{ $errors->has('box_color') ? ' has-error' : '' }}">
                             <label for="box_color" class="col-md-4 control-label">Cor da seção</label>
@@ -133,6 +120,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+
+                            <div class="col-md-12">
+                                <textarea id="description" class="form-control hidden" name="description"
+                                          value="{{ old('description') }}" required></textarea>
+
+                                <div id="editor"></div>
+
+                                @if ($errors->has('description'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('description') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-success">
@@ -145,4 +147,38 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        var toolbarOptions = [
+            [{'header': [1, 2, 3, 4, 5, 6, false]}],
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            [{'list': 'ordered'}, {'list': 'bullet'}],
+            [{'script': 'sub'}, {'script': 'super'}],      // superscript/subscript
+            [{'indent': '-1'}, {'indent': '+1'}],          // outdent/indent
+            [{'direction': 'rtl'}],                         // text direction
+            [{'font': []}],
+            [{'align': []}],
+            ['blockquote', 'code-block'],
+            ['clean']];
+
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: toolbarOptions
+            }
+        });
+
+        quill.on('text-change', function (delta, oldDelta, source) {
+
+            $('#description').val(quill.getText());
+
+        });
+
+
+        $(window).load(function () {
+            quill.setText($('#description').val());
+        });
+    </script>
 @endsection
