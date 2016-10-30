@@ -20,4 +20,9 @@ class Page extends Model
         $this->attributes['slug'] = str_slug($value);
     }
 
+    public function page()
+    {
+        return $this->hasOne('App\Domains\Pages\SectionPage');
+    }
+
 }
